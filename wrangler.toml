@@ -1,5 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "r2-dir-list-frontend"
+account_id = "2dc3483aa62d4b5dc774ec04713893de"
 main = ".worker-next/index.mjs"
 
 compatibility_date = "2024-09-26"
