@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     template: '%s | poi R2 index',
     default: 'poi R2 index',
   },
+  icons: [{ rel: 'icon', url: '/favicon.ico' }],
 }
 
 export default function RootLayout({

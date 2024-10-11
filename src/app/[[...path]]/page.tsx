@@ -1,7 +1,4 @@
-import { title } from 'process'
-
 import { getCloudflareContext } from '@opennextjs/cloudflare'
-import { SlashIcon } from '@radix-ui/react-icons'
 import { type Metadata } from 'next'
 import { headers } from 'next/headers'
 import Link from 'next/link'
@@ -17,11 +14,21 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { getSite } from '@/lib/sites'
 
-export const generateMetadata = async (): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params: { path = [] },
+}: {
+  params: { path?: string[] }
+}): Promise<Metadata> => {
   const host = headers().get('host')
+
+  const cfContext = await getCloudflareContext()
+
+  const site = getSite(cfContext.env, host!)
   return {
-    title: host!,
+    title: `index of /${path.join('/')} | ${site.title}`,
+    description: site.description,
   }
 }
 
@@ -67,11 +74,13 @@ export default async function Home({
 }) {
   const host = headers().get('host')
 
-  const bucket = (await getCloudflareContext()).env.BUCKET_POI_NIGHTLIES
+  const cfContext = await getCloudflareContext()
+
+  const site = getSite(cfContext.env, host!)
 
   const prefix = path.length > 0 ? `${path.join('/')}/` : ''
 
-  const index = await listBucket(bucket, {
+  const index = await listBucket(site.bucket, {
     prefix,
     delimiter: '/',
     include: ['httpMetadata', 'customMetadata'],
@@ -93,30 +102,39 @@ export default async function Home({
   ] satisfies Data[]
 
   return (
-    <main className="flex min-h-screen flex-col">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {path.map((segment, index) => (
-            <Fragment key={path.slice(0, index + 1).join('/')}>
-              <BreadcrumbSeparator />
+    <main className="flex min-h-screen max-w-screen-2xl flex-col p-4">
+      <nav className="rounded border-2 bg-card px-4 py-2 text-xl">
+        <h2 className="sr-only">Navigation</h2>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{host}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            {path.map((segment, index) => (
+              <Fragment key={path.slice(0, index + 1).join('/')}>
+                <BreadcrumbSeparator />
 
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/${path.slice(0, index + 1).join('/')}`}>
-                    {segment}
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-            </Fragment>
-          ))}
-        </BreadcrumbList>
-      </Breadcrumb>
-      <IndexTable data={data} />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href={`/${path.slice(0, index + 1).join('/')}`}>
+                      {segment}
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </Fragment>
+            ))}
+          </BreadcrumbList>
+        </Breadcrumb>
+      </nav>
+      <h1 className="my-8 text-2xl leading-loose">{site.title}</h1>
+      <section className="grow">
+        <IndexTable data={data} />
+      </section>
+      <footer>
+        <span>{`© ${new Date().getFullYear()} poi Contributors`}</span>
+      </footer>
     </main>
   )
 }

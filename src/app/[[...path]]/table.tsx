@@ -1,21 +1,21 @@
 'use client'
 
 import {
-  useReactTable,
-  getCoreRowModel,
   createColumnHelper,
   flexRender,
+  getCoreRowModel,
+  useReactTable,
 } from '@tanstack/react-table'
 import { filesize } from 'filesize'
+import { FileArchiveIcon, FileCog, FileIcon, FolderIcon } from 'lucide-react'
 import Link from 'next/link'
-import { useMemo } from 'react'
+import { useMemo, type ReactNode } from 'react'
 
 import { DataType, type Data } from './model'
 
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -37,17 +37,43 @@ const cleanFolderName = (name: string) => {
   return name.slice(0, -1).split('/').slice(-1).pop()!
 }
 
+const guessFileIcon = (name: string): ReactNode => {
+  const ext = name.split('.').pop()
+  switch (ext) {
+    case 'zip':
+    case 'rar':
+    case '7z':
+    case 'gz':
+      return <FileArchiveIcon />
+    case 'exe':
+      return <FileCog />
+    default:
+      return <FileIcon />
+  }
+}
+
 export const IndexTable = ({ data }: TableProps) => {
   const columns = useMemo(
     () => [
       columnHelper.accessor('key', {
-        cell: (info) => (
-          <Link href={info.row.original.href}>
-            {info.row.original.type === DataType.Folder
-              ? cleanFolderName(info.getValue())
-              : cleanFileName(info.getValue())}
-          </Link>
-        ),
+        cell: (info) =>
+          info.row.original.type === DataType.Folder ? (
+            <Link
+              href={info.row.original.href}
+              className="inline-flex items-center gap-2"
+            >
+              <FolderIcon />
+              {cleanFolderName(info.getValue())}
+            </Link>
+          ) : (
+            <a
+              href={info.row.original.href}
+              className="inline-flex items-center gap-2"
+            >
+              {guessFileIcon(info.getValue())}
+              {cleanFileName(info.getValue())}
+            </a>
+          ),
         header: 'Name',
       }),
       columnHelper.accessor('size', {
