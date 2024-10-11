@@ -16,3 +16,7 @@ r2_buckets  = [
     { binding = "BUCKET_POI_DB", bucket_name = "poi-db"},
     { binding = "BUCKET_POI_NIGHTLIES", bucket_name = "poi-nightlies"},
 ]
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "a73835e296554c0e8a4c83a6f5dc3493"
