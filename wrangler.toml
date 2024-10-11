@@ -20,3 +20,6 @@ r2_buckets  = [
 [[kv_namespaces]]
 binding = "NEXT_CACHE_WORKERS_KV"
 id = "a73835e296554c0e8a4c83a6f5dc3493"
+
+[observability]
+enabled = true
