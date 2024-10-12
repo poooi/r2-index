@@ -133,11 +133,14 @@ export const IndexTable = ({ data }: TableProps) => {
       }),
       columnHelper.accessor('modified', {
         sortingFn: sortByNumber,
-        cell: (info) => (
-          <time dateTime={info.getValue()?.toISOString()}>
-            {info.getValue()?.toISOString()}
-          </time>
-        ),
+        cell: (info) => {
+          const timestamp = info.getValue()
+          if (!timestamp) {
+            return '-'
+          }
+          const date = new Date(timestamp)
+          return <time dateTime={date.toISOString()}>{date.toISOString()}</time>
+        },
         header: 'Modified',
       }),
     ],

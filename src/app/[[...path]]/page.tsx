@@ -68,39 +68,64 @@ async function listBucket(
   }
 }
 
+const getBucketDataCacheKey = (prefix: string, host: string) =>
+  `bucket-data:${host}:${prefix}`
+
 export default async function Home({
   params: { path = [] },
 }: {
   params: { path?: string[] }
 }) {
   const host = headers().get('host')
+  if (!host) {
+    notFound()
+  }
 
   const cfContext = await getCloudflareContext()
 
-  const site = getSite(cfContext.env, host!)
+  const site = getSite(cfContext.env, host)
 
   const prefix = path.length > 0 ? `${path.join('/')}/` : ''
 
-  const index = await listBucket(site.bucket, {
-    prefix,
-    delimiter: '/',
-    include: ['httpMetadata', 'customMetadata'],
-  })
+  let data: Data[] = []
 
-  const data = [
-    ...index.delimitedPrefixes.map((delimitedPrefix) => ({
-      key: delimitedPrefix,
-      href: `/${delimitedPrefix}`,
-      type: DataType.Folder,
-    })),
-    ...index.objects.map((object) => ({
-      key: object.key,
-      href: `/${object.key}`,
-      type: DataType.File,
-      size: object.size,
-      modified: object.uploaded,
-    })),
-  ] satisfies Data[]
+  const cached = await cfContext.env.NEXT_CACHE_WORKERS_KV.get<string>(
+    getBucketDataCacheKey(prefix, host),
+  )
+
+  if (cached !== null) {
+    data = JSON.parse(cached) as Data[]
+  } else {
+    const result = await listBucket(site.bucket, {
+      prefix,
+      delimiter: '/',
+      include: ['httpMetadata', 'customMetadata'],
+    })
+
+    data = [
+      ...result.delimitedPrefixes.map((delimitedPrefix) => ({
+        key: delimitedPrefix,
+        href: `/${delimitedPrefix}`,
+        type: DataType.Folder,
+      })),
+      ...result.objects.map((object) => ({
+        key: object.key,
+        href: `/${object.key}`,
+        type: DataType.File,
+        size: object.size,
+        modified: object.uploaded.getTime(),
+      })),
+    ] satisfies Data[]
+    cfContext.ctx.waitUntil(
+      cfContext.env.NEXT_CACHE_WORKERS_KV.put(
+        getBucketDataCacheKey(prefix, host),
+        JSON.stringify(data),
+        {
+          expirationTtl: 60,
+        },
+      ),
+    )
+  }
 
   if (data.length === 0) {
     notFound()

@@ -58,8 +58,8 @@ importers:
         specifier: ^9.0.3
         version: 9.0.3
       '@opennextjs/cloudflare':
-        specifier: ^0.1.1
-        version: 0.1.1(wrangler@3.80.4(@cloudflare/workers-types@4.20241004.0))
+        specifier: ^0.2.0
+        version: 0.2.0(wrangler@3.80.4(@cloudflare/workers-types@4.20241004.0))
       '@types/lodash':
         specifier: ^4.17.10
         version: 4.17.10
@@ -451,8 +451,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@opennextjs/cloudflare@0.1.1':
-    resolution: {integrity: sha512-gHfxF4GDBi/wk5GppVJMybxK6Vi7DOv+IbTSCfPfEzWnjv0lCLlhxC/7A9MoG94OIfUcaG3JAvz/CmSlN1uO5A==}
+  '@opennextjs/cloudflare@0.2.0':
+    resolution: {integrity: sha512-cs3ILyQNmUYsm6WTY4mmbTDGMnUTIqg9Seo1FM2M9cGtu24rou/7Ux2qNu95sR74VWJnJenfq3gbQ7qfi1caWw==}
     hasBin: true
     peerDependencies:
       wrangler: ^3.78.10
@@ -2525,7 +2525,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@opennextjs/cloudflare@0.1.1(wrangler@3.80.4(@cloudflare/workers-types@4.20241004.0))':
+  '@opennextjs/cloudflare@0.2.0(wrangler@3.80.4(@cloudflare/workers-types@4.20241004.0))':
     dependencies:
       ts-morph: 23.0.0
       wrangler: 3.80.4(@cloudflare/workers-types@4.20241004.0)

@@ -8,5 +8,5 @@ export interface Data {
   href: string
   type: DataType
   size?: number
-  modified?: Date
+  modified?: number
 }
