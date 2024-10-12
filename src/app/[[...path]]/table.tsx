@@ -104,6 +104,7 @@ export const IndexTable = ({ data }: TableProps) => {
             <Link
               href={info.row.original.href}
               className="inline-flex items-center gap-2"
+              data-testid="folder-link"
             >
               <FolderIcon />
               {cleanFolderName(info.getValue())}
@@ -112,6 +113,8 @@ export const IndexTable = ({ data }: TableProps) => {
             <a
               href={info.row.original.href}
               className="inline-flex items-center gap-2"
+              data-testid="file-link"
+              download={cleanFileName(info.getValue())}
             >
               {guessFileIcon(info.getValue())}
               {cleanFileName(info.getValue())}
@@ -157,6 +160,8 @@ export const IndexTable = ({ data }: TableProps) => {
     state: { sorting },
     onSortingChange: setSorting,
   })
+
+  console.log(sorting)
 
   return (
     <Table className="table-fixed">

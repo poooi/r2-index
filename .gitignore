@@ -46,3 +46,8 @@ next-env.d.ts
 .dev.vars
 
 temp/
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
