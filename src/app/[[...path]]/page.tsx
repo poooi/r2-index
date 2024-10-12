@@ -2,6 +2,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare'
 import { type Metadata } from 'next'
 import { headers } from 'next/headers'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { Fragment } from 'react'
 
 import { type Data, DataType } from './model'
@@ -100,6 +101,10 @@ export default async function Home({
       modified: object.uploaded,
     })),
   ] satisfies Data[]
+
+  if (data.length === 0) {
+    notFound()
+  }
 
   return (
     <main className="relative flex min-h-screen max-w-screen-2xl flex-col p-4">
