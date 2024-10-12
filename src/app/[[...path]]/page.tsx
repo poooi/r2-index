@@ -94,7 +94,7 @@ export default async function Home({
     })),
     ...index.objects.map((object) => ({
       key: object.key,
-      href: object.key,
+      href: `/${object.key}`,
       type: DataType.File,
       size: object.size,
       modified: object.uploaded,
