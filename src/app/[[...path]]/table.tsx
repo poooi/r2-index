@@ -111,7 +111,7 @@ export const IndexTable = ({ data }: TableProps) => {
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHead key={header.id}>
+              <TableHead className="sticky top-0 bg-muted" key={header.id}>
                 {header.isPlaceholder
                   ? null
                   : flexRender(

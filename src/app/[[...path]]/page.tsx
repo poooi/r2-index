@@ -102,7 +102,7 @@ export default async function Home({
   ] satisfies Data[]
 
   return (
-    <main className="flex min-h-screen max-w-screen-2xl flex-col p-4">
+    <main className="relative flex min-h-screen max-w-screen-2xl flex-col p-4">
       <nav className="rounded border-2 bg-card px-4 py-2 text-xl">
         <h2 className="sr-only">Navigation</h2>
         <Breadcrumb>
@@ -132,7 +132,7 @@ export default async function Home({
       <section className="grow">
         <IndexTable data={data} />
       </section>
-      <footer>
+      <footer className="mt-16">
         <span>{`© ${new Date().getFullYear()} poi Contributors`}</span>
       </footer>
     </main>
