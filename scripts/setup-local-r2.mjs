@@ -19,11 +19,13 @@ console.log(os.platform())
  * @param {string} filename
  */
 const createStubFile = async (filename) => {
-  const filesize = faker.number.float({ min: 1, max: 10, fractionDigits: 2 })
+  const filesize = (
+    faker.number.float({ min: 1, max: 10, fractionDigits: 2 }) * 1000000
+  ).toFixed(0)
   if (os.platform() === 'win32') {
-    await execa`fsutil file createnew temp/${filename} ${filesize * 1000000}`
+    await execa`fsutil file createnew temp/${filename} ${filesize}`
   } else {
-    await execa`dd if=/dev/urandom of=./temp/${filename} bs=${filesize * 1000000} count=1`
+    await execa`dd if=/dev/urandom of=./temp/${filename} bs=${filesize} count=1`
   }
 }
 
