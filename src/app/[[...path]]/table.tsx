@@ -4,12 +4,23 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getSortedRowModel,
+  type SortDirection,
+  type SortingFn,
+  type SortingState,
   useReactTable,
 } from '@tanstack/react-table'
 import { filesize } from 'filesize'
-import { FileArchiveIcon, FileCog, FileIcon, FolderIcon } from 'lucide-react'
+import {
+  ArrowDown,
+  ArrowUp,
+  FileArchiveIcon,
+  FileCog,
+  FileIcon,
+  FolderIcon,
+} from 'lucide-react'
 import Link from 'next/link'
-import { useMemo, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 
 import { DataType, type Data } from './model'
 
@@ -22,6 +33,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { cn } from '@/lib/utils'
 
 interface TableProps {
   data: Data[]
@@ -52,10 +64,41 @@ const guessFileIcon = (name: string): ReactNode => {
   }
 }
 
+const getSortedIcon = (direction: false | SortDirection): ReactNode => {
+  if (!direction) {
+    return null
+  }
+  if (direction === 'asc') {
+    return <ArrowUp className="inline-block" />
+  }
+  return <ArrowDown className="inline-block" />
+}
+
+const sortByNumber: SortingFn<Data> = (rowA, rowB, columnId) => {
+  if (rowA.original.type !== rowB.original.type) {
+    return rowA.original.type === DataType.Folder ? 1 : -1
+  }
+  return rowA.getValue<number>(columnId) < rowB.getValue<number>(columnId)
+    ? 1
+    : -1
+}
+
+const sortByString: SortingFn<Data> = (rowA, rowB, columnId) => {
+  if (rowA.original.type !== rowB.original.type) {
+    return rowA.original.type === DataType.Folder ? 1 : -1
+  }
+  return rowA
+    .getValue<string>(columnId)
+    .localeCompare(rowB.getValue<string>(columnId), 'en', {
+      sensitivity: 'base',
+    })
+}
+
 export const IndexTable = ({ data }: TableProps) => {
   const columns = useMemo(
     () => [
       columnHelper.accessor('key', {
+        sortingFn: sortByString,
         cell: (info) =>
           info.row.original.type === DataType.Folder ? (
             <Link
@@ -77,6 +120,7 @@ export const IndexTable = ({ data }: TableProps) => {
         header: 'Name',
       }),
       columnHelper.accessor('size', {
+        sortingFn: sortByNumber,
         cell: (info) =>
           info.getValue() ? (
             <span title={info.getValue()?.toString()}>
@@ -88,6 +132,7 @@ export const IndexTable = ({ data }: TableProps) => {
         header: 'Size(SI)',
       }),
       columnHelper.accessor('modified', {
+        sortingFn: sortByNumber,
         cell: (info) => (
           <time dateTime={info.getValue()?.toISOString()}>
             {info.getValue()?.toISOString()}
@@ -99,27 +144,56 @@ export const IndexTable = ({ data }: TableProps) => {
     [],
   )
 
+  const [sorting, setSorting] = useState<SortingState>([])
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    state: { sorting },
+    onSortingChange: setSorting,
   })
 
   return (
-    <Table className="table-auto">
+    <Table className="table-fixed">
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <TableHead className="sticky top-0 bg-muted" key={header.id}>
-                {header.isPlaceholder
-                  ? null
-                  : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
+            {headerGroup.headers.map((header) => {
+              const sorted = header.column.getIsSorted()
+              return (
+                <TableHead
+                  className="z-1 sticky top-0 bg-muted"
+                  key={header.id}
+                  aria-sort={
+                    sorted === 'asc'
+                      ? 'ascending'
+                      : sorted === 'desc'
+                        ? 'descending'
+                        : 'none'
+                  }
+                >
+                  <div
+                    className={cn(
+                      header.column.getCanSort() && 'cursor-pointer',
+                      'hover:bg-accent hover:text-accent-foreground',
                     )}
-              </TableHead>
-            ))}
+                    onClick={header.column.getToggleSortingHandler()}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                    {getSortedIcon(sorted)}
+                  </div>
+                </TableHead>
+              )
+            })}
           </TableRow>
         ))}
       </TableHeader>
