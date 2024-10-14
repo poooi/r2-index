@@ -59,7 +59,7 @@ importers:
         version: 9.0.3
       '@opennextjs/cloudflare':
         specifier: ^0.2.0
-        version: 0.2.0(wrangler@3.80.4(@cloudflare/workers-types@4.20241011.0))
+        version: 0.2.1(wrangler@3.80.4(@cloudflare/workers-types@4.20241011.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.48.0
@@ -454,8 +454,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@opennextjs/cloudflare@0.2.0':
-    resolution: {integrity: sha512-cs3ILyQNmUYsm6WTY4mmbTDGMnUTIqg9Seo1FM2M9cGtu24rou/7Ux2qNu95sR74VWJnJenfq3gbQ7qfi1caWw==}
+  '@opennextjs/cloudflare@0.2.1':
+    resolution: {integrity: sha512-jHFz6wLcdvdedqVPmfgr3T0/twSw0ck7pupCD9uquuK63tevepXSbcwMSaymLCdFO0UTCMCBvY2D43tRXeueng==}
     hasBin: true
     peerDependencies:
       wrangler: ^3.78.10
@@ -2493,7 +2493,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@opennextjs/cloudflare@0.2.0(wrangler@3.80.4(@cloudflare/workers-types@4.20241011.0))':
+  '@opennextjs/cloudflare@0.2.1(wrangler@3.80.4(@cloudflare/workers-types@4.20241011.0))':
     dependencies:
       ts-morph: 23.0.0
       wrangler: 3.80.4(@cloudflare/workers-types@4.20241011.0)
