@@ -4,6 +4,7 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getSortedRowModel,
   type SortDirection,
   type SortingFn,
@@ -11,6 +12,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { filesize } from 'filesize'
+import { useAtomValue } from 'jotai'
 import {
   ArrowDown,
   ArrowUp,
@@ -23,6 +25,7 @@ import Link from 'next/link'
 import { useMemo, useState, type ReactNode } from 'react'
 
 import { DataType, type Data } from './model'
+import { filterValue } from './states'
 
 import {
   Table,
@@ -95,10 +98,19 @@ const sortByString: SortingFn<Data> = (rowA, rowB, columnId) => {
 }
 
 export const IndexTable = ({ data }: TableProps) => {
+  const value = useAtomValue(filterValue)
+
   const columns = useMemo(
     () => [
       columnHelper.accessor('key', {
         sortingFn: sortByString,
+        filterFn: (row, columnId, filterValue: string) => {
+          const name =
+            row.original.type === DataType.Folder
+              ? cleanFolderName(row.getValue(columnId))
+              : cleanFileName(row.getValue(columnId))
+          return name.includes(filterValue ?? '')
+        },
         cell: (info) =>
           info.row.original.type === DataType.Folder ? (
             <Link
@@ -152,16 +164,17 @@ export const IndexTable = ({ data }: TableProps) => {
 
   const [sorting, setSorting] = useState<SortingState>([])
 
+  const columnFilters = useMemo(() => [{ id: 'key', value }], [value])
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    state: { sorting },
+    getFilteredRowModel: getFilteredRowModel(),
+    state: { sorting, columnFilters },
     onSortingChange: setSorting,
   })
-
-  console.log(sorting)
 
   return (
     <Table className="table-fixed">

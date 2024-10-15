@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Fragment } from 'react'
 
+import { FilterInput } from './filter-input'
 import { type Data, DataType } from './model'
 import { IndexTable } from './table'
 
@@ -160,6 +161,7 @@ export default async function Home({
       </nav>
       <h1 className="my-8 text-2xl leading-loose">{site.title}</h1>
       <section className="grow">
+        <FilterInput />
         <IndexTable data={data} />
       </section>
       <footer className="mt-16">
