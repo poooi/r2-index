@@ -1,3 +1,7 @@
+import { execa } from 'execa'
+
+const commitHash = await execa('git', ['rev-parse', 'HEAD'])
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -7,6 +11,10 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   trailingSlash: true,
-};
+  env: {
+    COMMIT_HASH: commitHash.stdout,
+    BUILD_DATE: new Date().toISOString(),
+  },
+}
 
-export default nextConfig;
+export default nextConfig

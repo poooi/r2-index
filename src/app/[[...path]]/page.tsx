@@ -166,6 +166,15 @@ export default async function Home({
       </section>
       <footer className="mt-16">
         <span>{`© ${new Date().getFullYear()} poi Contributors`}</span>
+        {process.env.COMMIT_HASH && (
+          <>
+            <span> | </span>
+            <span>
+              poi R2 index version {process.env.COMMIT_HASH.slice(0, 8)}/
+              {process.env.BUILD_DATE}
+            </span>
+          </>
+        )}
       </footer>
     </main>
   )
