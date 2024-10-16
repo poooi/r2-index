@@ -11,6 +11,11 @@ export const getSite = (env: CloudflareEnv, hostname: string) => {
       bucket: env.BUCKET_POI_NIGHTLIES,
       description: 'poi nightly builds',
     },
+    'nightly.poi.moe': {
+      title: 'poi nightlies',
+      bucket: env.BUCKET_POI_NIGHTLIES,
+      description: 'poi nightly builds',
+    },
     'db.poi.moe': {
       title: 'poi-db monthly dumps',
       bucket: env.BUCKET_POI_DB,
@@ -18,5 +23,5 @@ export const getSite = (env: CloudflareEnv, hostname: string) => {
     },
   }
 
-  return sites[hostname] ?? sites['nightlies.poi.moe']
+  return sites[hostname] ?? sites['db.poi.moe']
 }
