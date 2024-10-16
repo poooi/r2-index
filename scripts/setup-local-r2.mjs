@@ -33,7 +33,7 @@ await pEachSeries(new Array(20).fill(0), async () => {
   const filename = faker.system.fileName()
   await createStubFile(filename)
   console.log('created file ', filename)
-  await execa`corepack pnpm wrangler r2 object put poi-nightlies/${filename} --local --file ./temp/${filename}`
+  await execa`corepack pnpm wrangler r2 object put poi-db/${filename} --local --file ./temp/${filename}`
 })
 
 await pEachSeries(new Array(20).fill(0), async () => {
@@ -41,5 +41,5 @@ await pEachSeries(new Array(20).fill(0), async () => {
   const path = faker.system.directoryPath()
   await createStubFile(filename)
   console.log('created file ', path, filename)
-  await execa`corepack pnpm wrangler r2 object put poi-nightlies/${path}/${filename} --local --file ./temp/${filename}`
+  await execa`corepack pnpm wrangler r2 object put poi-db/${path}/${filename} --local --file ./temp/${filename}`
 })
