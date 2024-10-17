@@ -52,14 +52,16 @@ pnpm install
 
 To use the project, first you need to assign your R2 bucket with a custom domain, which will be the same domain as `r2-ingress`. Then for this project, just change the worker configuration in `wrangler.toml` to fit your situation, as well as the R2 site config. Explanation:
 
-| config name   | usage                                                                                           |
-| ------------- | ----------------------------------------------------------------------------------------------- |
-| name          | worker name                                                                                     |
-| account_id    | optional, useful for manual deployment when the user has access to multiple Cloudflare accounts |
-| assets        | asset binding for worker with assets, required by `opennext-cloudflare`                         |
-| r2_buckets    | R2 storage bindings                                                                             |
-| kv_namespaces | required by `opennext-cloudflare` to save temp files                                            |
-| observability | optional, send logs to the worker logs tab                                                      |
+| config name   | usage                                                                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name          | worker name                                                                                                                                           |
+| account_id    | optional, useful for manual deployment when the user has access to multiple Cloudflare accounts                                                       |
+| assets        | asset binding for worker with assets, required by `opennext-cloudflare`                                                                               |
+| r2_buckets    | R2 storage bindings                                                                                                                                   |
+| kv_namespaces | required by `opennext-cloudflare` to save temp files                                                                                                  |
+| observability | optional, send logs to the worker logs tab                                                                                                            |
+| routes        | URLs that the r2-ingress should take, usually the same as the domain assigned to the R2 bucket, Cloudflare will route the traffic to the worker first |
+| services      | service binding so that the 2 workers could be bound together                                                                                         |
 
 To update TypeScript definition, run `corepack pnpm cf-typegen`.
 
