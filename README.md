@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# R2 Index
 
-## Getting Started
+Index UI for Cloudflare R2 storage
 
-First, run the development server:
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Development](#development)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+R2 Index is a project designed to provide a storage index similar to typical file servers on Apache or Nginx. Currently, it works together with [r2-ingress](https://github.com/poooi/r2-ingress) due to tooling restrictions. A brief architecture is shown below.
+
+![image](https://github.com/user-attachments/assets/d4645815-abaa-480f-ac14-a7060cc09cbe)
+
+`r2-ingress` would be the entry point of the service, and `r2-index` serves as a [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/).
+
+## Features
+
+- File index page
+- Filtering file names
+- Ordering by file name, size, and modified date
+  and more will come
+
+## Development
+
+To install the project, follow these steps:
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/poooi/r2-index.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd r2-index
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install the dependencies:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To use the project, first you need to assign your R2 bucket with a custom domain, which will be the same domain as `r2-ingress`. Then for this project, just change the worker configuration in `wrangler.toml` to fit your situation, as well as the R2 site config. Explanation:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| config name   | usage                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| name          | worker name                                                                                     |
+| account_id    | optional, useful for manual deployment when the user has access to multiple Cloudflare accounts |
+| assets        | asset binding for worker with assets, required by `opennext-cloudflare`                         |
+| r2_buckets    | R2 storage bindings                                                                             |
+| kv_namespaces | required by `opennext-cloudflare` to save temp files                                            |
+| observability | optional, send logs to the worker logs tab                                                      |
 
-## Deploy on Vercel
+To update TypeScript definition, run `corepack pnpm cf-typegen`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+After deploying this worker, you'll also need to change the service binding in `r2-ingress` and have it deployed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+We welcome contributions! Please follow these steps to contribute:
+
+1. Fork and clone the repository.
+2. Create a new branch:
+
+```bash
+git checkout -b feature-branch
+```
+
+3. Make your changes and commit them:
+
+```bash
+git commit -m "Description of your changes"
+```
+
+4. Push to the branch:
+
+```bash
+git push origin feature-branch
+```
+
+5. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
