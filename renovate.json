@@ -4,5 +4,5 @@
     "config:recommended",
     ":automergeAll"
   ],
-  "ignoreDeps": ["eslint", "@types/eslint"]
+  "ignoreDeps": ["eslint", "@types/eslint", "next"]
 }
