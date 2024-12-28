@@ -62,7 +62,7 @@ importers:
         version: 9.3.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
-        version: 0.3.2(wrangler@3.99.0(@cloudflare/workers-types@4.20241224.0))
+        version: 0.3.3(wrangler@3.99.0(@cloudflare/workers-types@4.20241224.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.49.1
@@ -833,8 +833,8 @@ packages:
     version: 3.3.0
     hasBin: true
 
-  '@opennextjs/cloudflare@0.3.2':
-    resolution: {integrity: sha512-g5CrNI+oX9Z/qZ3eGoTHdAqJKQTdFZD1xeWKyLZwa8yt/cvpxd4tq6CFnRPIz03kjNkCHKe07tfBPxKgDkKauQ==}
+  '@opennextjs/cloudflare@0.3.3':
+    resolution: {integrity: sha512-2JOMEOS8U7sC5qgasPVUONTUeNnidV4Yq/rqcPajKVLa+fd4US9Q24K5W/zC2xkWiDvwtL9oq58IrtJeJInNwA==}
     hasBin: true
     peerDependencies:
       wrangler: ^3.99.0
@@ -2175,8 +2175,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lru-cache@11.0.1:
-    resolution: {integrity: sha512-CgeuL5uom6j/ZVrg7G/+1IXqRY8JXX4Hghfy5YE0EhoYQWvndP1kufu58cmZLNIDKnRhZrXfdS9urVWx98AipQ==}
+  lru-cache@11.0.2:
+    resolution: {integrity: sha512-123qHRfJBmo2jXDbo/a5YOQrJoHF/GNQTLzQ5+IdK5pWpceK17yRc6ozlWd25FxvGKQbIUs91fDFkXmDHTKcyA==}
     engines: {node: 20 || >=22}
 
   lucide-react@0.469.0:
@@ -4100,7 +4100,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.2(wrangler@3.99.0(@cloudflare/workers-types@4.20241224.0))':
+  '@opennextjs/cloudflare@0.3.3(wrangler@3.99.0(@cloudflare/workers-types@4.20241224.0))':
     dependencies:
       '@dotenvx/dotenvx': 1.31.0
       '@opennextjs/aws': https://pkg.pr.new/@opennextjs/aws@684
@@ -5796,7 +5796,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lru-cache@11.0.1: {}
+  lru-cache@11.0.2: {}
 
   lucide-react@0.469.0(react@19.0.0):
     dependencies:
@@ -6028,7 +6028,7 @@ snapshots:
 
   path-scurry@2.0.0:
     dependencies:
-      lru-cache: 11.0.1
+      lru-cache: 11.0.2
       minipass: 7.1.2
 
   path-to-regexp@6.3.0: {}
