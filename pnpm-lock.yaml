@@ -62,7 +62,7 @@ importers:
         version: 9.3.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
-        version: 0.3.5(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
+        version: 0.3.6(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.49.1
@@ -829,8 +829,8 @@ packages:
     version: 3.3.1
     hasBin: true
 
-  '@opennextjs/cloudflare@0.3.5':
-    resolution: {integrity: sha512-v8i+KtMEnsDtYP7sYGM2HxP3vu/sQcE7Wd7DEz4e4nAlDzkD/xAL406OCsbHKPIgdJnN6ssBlKlYMwRztRhMhQ==}
+  '@opennextjs/cloudflare@0.3.6':
+    resolution: {integrity: sha512-80QYTbwMaQgBVrOvKFNH0/mdRgCD+dFaAN9Cl/SrVyGqA+kiEu2JB0PJMdt0ZqDXibErmh83t4pdjKdvv5HY1A==}
     hasBin: true
     peerDependencies:
       wrangler: ^3.99.0
@@ -1864,6 +1864,11 @@ packages:
 
   glob@11.0.0:
     resolution: {integrity: sha512-9UiX/Bl6J2yaBbxKoEBRm4Cipxgok8kQYcOPEhScPwebu2I0HoQOuYdIO6S3hLuWoZgpDpwQZMzTFxgpkyT76g==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+
+  glob@11.0.1:
+    resolution: {integrity: sha512-zrQDm8XPnYEKawJScsnM0QzobJxlT/kHOOlRTio8IH/GrmxRE5fjllkzdaHclIuNjUQTJYH2xHNIGfdpJkDJUw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -4120,13 +4125,12 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.5(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
+  '@opennextjs/cloudflare@0.3.6(wrangler@3.101.0(@cloudflare/workers-types@4.20250109.0))':
     dependencies:
       '@dotenvx/dotenvx': 1.31.0
       '@opennextjs/aws': https://pkg.pr.new/@opennextjs/aws@688
       enquirer: 2.4.1
-      glob: 11.0.0
-      rimraf: 6.0.1
+      glob: 11.0.1
       ts-morph: 23.0.0
       wrangler: 3.101.0(@cloudflare/workers-types@4.20250109.0)
     transitivePeerDependencies:
@@ -5531,6 +5535,15 @@ snapshots:
       path-scurry: 1.11.1
 
   glob@11.0.0:
+    dependencies:
+      foreground-child: 3.3.0
+      jackspeak: 4.0.2
+      minimatch: 10.0.1
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.1
+      path-scurry: 2.0.0
+
+  glob@11.0.1:
     dependencies:
       foreground-child: 3.3.0
       jackspeak: 4.0.2
