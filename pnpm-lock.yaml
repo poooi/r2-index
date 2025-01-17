@@ -36,8 +36,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       lucide-react:
-        specifier: ^0.471.0
-        version: 0.471.1(react@19.0.0)
+        specifier: ^0.472.0
+        version: 0.472.0(react@19.0.0)
       next:
         specifier: ^14.2.20
         version: 14.2.20(@playwright/test@1.49.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2332,8 +2332,8 @@ packages:
     resolution: {integrity: sha512-123qHRfJBmo2jXDbo/a5YOQrJoHF/GNQTLzQ5+IdK5pWpceK17yRc6ozlWd25FxvGKQbIUs91fDFkXmDHTKcyA==}
     engines: {node: 20 || >=22}
 
-  lucide-react@0.471.1:
-    resolution: {integrity: sha512-syOxwPhf62gg2YOsz72HRn+CIpeudFy67AeKnSR8Hn/fIIF4ubhNbRF+pQ2CaJrl+X9Os4PL87z2DXQi3DVeDA==}
+  lucide-react@0.472.0:
+    resolution: {integrity: sha512-wdJH3xJAMuelsCgSZLBGQunk20xwFSMsuY7R4lrbLd/QsEPf/n6EmbGUnvux7+OjDJC248Kuja+5gWGpC7f3SA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -3281,6 +3281,7 @@ packages:
   wrangler@3.103.1:
     resolution: {integrity: sha512-IuPXxRY5IZ081m6TeL1UY4X1lUH873MbndT4Tn9A5qN5ePzxTvyOM3pUil76bV+2rXk/TiZyt9fYykrKQ4g6Xg==}
     engines: {node: '>=16.17.0'}
+    deprecated: Downgrade to 3.99.0
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20241230.0
@@ -6213,7 +6214,7 @@ snapshots:
 
   lru-cache@11.0.2: {}
 
-  lucide-react@0.471.1(react@19.0.0):
+  lucide-react@0.472.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 
@@ -6730,7 +6731,7 @@ snapshots:
 
   send@1.1.0:
     dependencies:
-      debug: 4.3.6
+      debug: 4.4.0
       destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
