@@ -59,7 +59,7 @@ importers:
         version: 4.20250224.0
       '@faker-js/faker':
         specifier: ^9.0.3
-        version: 9.4.0
+        version: 9.5.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
         version: 0.3.10(wrangler@3.110.0(@cloudflare/workers-types@4.20250224.0))
@@ -827,8 +827,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@faker-js/faker@9.4.0':
-    resolution: {integrity: sha512-85+k0AxaZSTowL0gXp8zYWDIrWclTbRPg/pm/V0dSFZ6W6D4lhcG3uuZl4zLsEKfEvs69xDbLN2cHQudwp95JA==}
+  '@faker-js/faker@9.5.0':
+    resolution: {integrity: sha512-3qbjLv+fzuuCg3umxc9/7YjrEXNaKwHgmig949nfyaTx8eL4FAsvFbu+1JcFUj1YAXofhaDn6JdEUBTYuk0Ssw==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@fastify/busboy@2.1.1':
@@ -4963,7 +4963,7 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@faker-js/faker@9.4.0': {}
+  '@faker-js/faker@9.5.0': {}
 
   '@fastify/busboy@2.1.1': {}
 
