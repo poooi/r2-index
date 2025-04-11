@@ -71,7 +71,7 @@ importers:
         version: 4.17.16
       '@types/node':
         specifier: ^22.0.0
-        version: 22.14.0
+        version: 22.14.1
       '@types/react':
         specifier: ^19.0.0
         version: 19.1.1
@@ -227,8 +227,8 @@ packages:
     resolution: {integrity: sha512-kISKhqN1k48TaMPbLgq9jj7mO2jvbJdhirvfu4JW3jhFhENnkY0oCwTPvR4Q6Ne2as6GFAMo2XZDZq4rxC7YDw==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/client-dynamodb@3.787.0':
-    resolution: {integrity: sha512-mqR+MrO/Jef9fHU0QH4jDW5zJ3RtHUnyt6OVwO0ezQD5hWajIwT8fl2Bp0zqakhkhUAiW7FpGAiF+G+kEqb/rQ==}
+  '@aws-sdk/client-dynamodb@3.788.0':
+    resolution: {integrity: sha512-agm2+5p47uDbAcWRJjRqsIIpbjig5P0AMB/1lQjkQKTnGOfdgzIrFLtQ3tO0kWWbTb7gH6Pg5EviuTC8j6axLQ==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/client-lambda@3.787.0':
@@ -1542,8 +1542,8 @@ packages:
   '@types/lodash@4.17.16':
     resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
-  '@types/node@22.14.0':
-    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/react-dom@19.1.2':
     resolution: {integrity: sha512-XGJkWF41Qq305SKWEILa1O8vzhb3aOo3ogBlSmiqNko/WmRb6QIaweuZCXjKygVDXpzXb5wyxKTSOsmkuqj+Qw==}
@@ -3854,7 +3854,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-dynamodb@3.787.0':
+  '@aws-sdk/client-dynamodb@3.788.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
@@ -5128,7 +5128,7 @@ snapshots:
   '@opennextjs/aws@https://pkg.pr.new/@opennextjs/aws@704':
     dependencies:
       '@aws-sdk/client-cloudfront': 3.398.0
-      '@aws-sdk/client-dynamodb': 3.787.0
+      '@aws-sdk/client-dynamodb': 3.788.0
       '@aws-sdk/client-lambda': 3.787.0
       '@aws-sdk/client-s3': 3.787.0
       '@aws-sdk/client-sqs': 3.787.0
@@ -5784,7 +5784,7 @@ snapshots:
 
   '@types/lodash@4.17.16': {}
 
-  '@types/node@22.14.0':
+  '@types/node@22.14.1':
     dependencies:
       undici-types: 6.21.0
 
