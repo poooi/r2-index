@@ -62,7 +62,7 @@ importers:
         version: 9.7.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
-        version: 0.3.10(wrangler@4.14.0(@cloudflare/workers-types@4.20250430.0))
+        version: 0.3.10(wrangler@4.14.1(@cloudflare/workers-types@4.20250430.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.52.0
@@ -119,7 +119,7 @@ importers:
         version: 5.8.3
       wrangler:
         specifier: ^4.0.0
-        version: 4.14.0(@cloudflare/workers-types@4.20250430.0)
+        version: 4.14.1(@cloudflare/workers-types@4.20250430.0)
 
 packages:
 
@@ -235,8 +235,8 @@ packages:
     resolution: {integrity: sha512-6GTL1zLtbi4ebcx+RBpU1dVYX7ReI3lt+rG3lzdYzRFa1OFnKVLSC5h06Y6arIMub9jtIWE060LioD3DoQteLw==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/client-s3@3.799.0':
-    resolution: {integrity: sha512-v9S5UdMsFjnTmhKKkWcWOE2vJyFUlAHm9utr272x5Lr+1wJMp0ztPyL/9UiABmBqMKzc2mAPosQoGW9ZcdJw4Q==}
+  '@aws-sdk/client-s3@3.800.0':
+    resolution: {integrity: sha512-SE33Y1kbeErd5h7KlmgWs1iJ0kKi+/t9XilI6NPIb5J5TmPKVUT5gf3ywa9ZSaq1x7LiAbICm0IPEz6k0WEBbQ==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/client-sqs@3.799.0':
@@ -395,8 +395,8 @@ packages:
     resolution: {integrity: sha512-40iH3LJjrQS3LKUJAl7Wj0bln7RFPEvUYKFxtP8a+oKFDO0F65F52xZxIJbPn6sHkxWDAnZlGgdjZXM3p2g5wQ==}
     engines: {node: '>=18.0.0'}
 
-  '@aws-sdk/signature-v4-multi-region@3.799.0':
-    resolution: {integrity: sha512-zCVugIzNfpBkjFYQFBeGEp6/qYtCH04pyE/X73SMOfBgYPsW+NhTo0JzrKmebGmKVYyxnuo7vT87bSJO2M8EfA==}
+  '@aws-sdk/signature-v4-multi-region@3.800.0':
+    resolution: {integrity: sha512-c71wZuiSUHNFCvcuqOv3jbqP+NquB2YKN4qX90OwYXEqUKn8F8fKJPpjjHjz1eK6qWKtECR4V/NTno2P70Yz/Q==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/token-providers@3.398.0':
@@ -2773,8 +2773,8 @@ packages:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
 
-  miniflare@4.20250428.0:
-    resolution: {integrity: sha512-3kKJNcdh5zUSXoFD3kGSRWc+ETZS36O7ygkCJJF/bwN7lxcB5mOXq+2DPqV/nVyu2DGLDAqsAvjXhpPKCHuPOQ==}
+  miniflare@4.20250428.1:
+    resolution: {integrity: sha512-M3qcJXjeAEimHrEeWXEhrJiC3YHB5M3QSqqK67pOTI+lHn0QyVG/2iFUjVJ/nv+i10uxeAEva8GRGeu+tKRCmQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3631,8 +3631,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.14.0:
-    resolution: {integrity: sha512-WhypgOBEYuUMo/ZFw8MgZ0wtyE7EmDanytjD8Me+OMm62raKU9V9DZTlF1UVLkNfilfQNlRbMnFRdzSBji/MEA==}
+  wrangler@4.14.1:
+    resolution: {integrity: sha512-EU7IThP7i68TBftJJSveogvWZ5k/WRijcJh3UclDWiWWhDZTPbL6LOJEFhHKqFzHOaC4Y2Aewt48rfTz0e7oCw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -3951,7 +3951,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-s3@3.799.0':
+  '@aws-sdk/client-s3@3.800.0':
     dependencies:
       '@aws-crypto/sha1-browser': 5.2.0
       '@aws-crypto/sha256-browser': 5.2.0
@@ -3969,7 +3969,7 @@ snapshots:
       '@aws-sdk/middleware-ssec': 3.775.0
       '@aws-sdk/middleware-user-agent': 3.799.0
       '@aws-sdk/region-config-resolver': 3.775.0
-      '@aws-sdk/signature-v4-multi-region': 3.799.0
+      '@aws-sdk/signature-v4-multi-region': 3.800.0
       '@aws-sdk/types': 3.775.0
       '@aws-sdk/util-endpoints': 3.787.0
       '@aws-sdk/util-user-agent-browser': 3.775.0
@@ -4561,7 +4561,7 @@ snapshots:
       '@smithy/util-middleware': 4.0.2
       tslib: 2.8.1
 
-  '@aws-sdk/signature-v4-multi-region@3.799.0':
+  '@aws-sdk/signature-v4-multi-region@3.800.0':
     dependencies:
       '@aws-sdk/middleware-sdk-s3': 3.799.0
       '@aws-sdk/types': 3.775.0
@@ -5130,7 +5130,7 @@ snapshots:
       '@aws-sdk/client-cloudfront': 3.398.0
       '@aws-sdk/client-dynamodb': 3.799.0
       '@aws-sdk/client-lambda': 3.799.0
-      '@aws-sdk/client-s3': 3.799.0
+      '@aws-sdk/client-s3': 3.800.0
       '@aws-sdk/client-sqs': 3.799.0
       '@esbuild-plugins/node-resolve': 0.2.2(esbuild@0.19.2)
       '@node-minify/core': 8.0.6
@@ -5147,7 +5147,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.0(@cloudflare/workers-types@4.20250430.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.1(@cloudflare/workers-types@4.20250430.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -5155,7 +5155,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.1
       ts-morph: 23.0.0
-      wrangler: 4.14.0(@cloudflare/workers-types@4.20250430.0)
+      wrangler: 4.14.1(@cloudflare/workers-types@4.20250430.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -7269,7 +7269,7 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
-  miniflare@4.20250428.0:
+  miniflare@4.20250428.1:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -8170,13 +8170,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250428.0
       '@cloudflare/workerd-windows-64': 1.20250428.0
 
-  wrangler@4.14.0(@cloudflare/workers-types@4.20250430.0):
+  wrangler@4.14.1(@cloudflare/workers-types@4.20250430.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.3.1(unenv@2.0.0-rc.15)(workerd@1.20250428.0)
       blake3-wasm: 2.1.5
       esbuild: 0.25.2
-      miniflare: 4.20250428.0
+      miniflare: 4.20250428.1
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.15
       workerd: 1.20250428.0
