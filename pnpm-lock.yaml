@@ -62,7 +62,7 @@ importers:
         version: 9.7.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
-        version: 0.3.10(wrangler@4.14.1(@cloudflare/workers-types@4.20250506.0))
+        version: 0.3.10(wrangler@4.14.2(@cloudflare/workers-types@4.20250506.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.52.0
@@ -119,7 +119,7 @@ importers:
         version: 5.8.3
       wrangler:
         specifier: ^4.0.0
-        version: 4.14.1(@cloudflare/workers-types@4.20250506.0)
+        version: 4.14.2(@cloudflare/workers-types@4.20250506.0)
 
 packages:
 
@@ -3631,8 +3631,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.14.1:
-    resolution: {integrity: sha512-EU7IThP7i68TBftJJSveogvWZ5k/WRijcJh3UclDWiWWhDZTPbL6LOJEFhHKqFzHOaC4Y2Aewt48rfTz0e7oCw==}
+  wrangler@4.14.2:
+    resolution: {integrity: sha512-kD0ilA7WXwhDt1lfyPwppZ2/lT9uwDLp93tfqnqrUENmP/uj+5tErzfZY51emtgXZoU1HFK6HytBEYLRCvCiPg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -5147,7 +5147,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.1(@cloudflare/workers-types@4.20250506.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.2(@cloudflare/workers-types@4.20250506.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -5155,7 +5155,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.1
       ts-morph: 23.0.0
-      wrangler: 4.14.1(@cloudflare/workers-types@4.20250506.0)
+      wrangler: 4.14.2(@cloudflare/workers-types@4.20250506.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -8170,7 +8170,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250428.0
       '@cloudflare/workerd-windows-64': 1.20250428.0
 
-  wrangler@4.14.1(@cloudflare/workers-types@4.20250506.0):
+  wrangler@4.14.2(@cloudflare/workers-types@4.20250506.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.3.1(unenv@2.0.0-rc.15)(workerd@1.20250428.0)
