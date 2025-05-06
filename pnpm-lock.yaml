@@ -31,7 +31,7 @@ importers:
         version: 10.1.6
       jotai:
         specifier: ^2.10.1
-        version: 2.12.3(@types/react@19.1.3)(react@19.1.0)
+        version: 2.12.4(@types/react@19.1.3)(react@19.1.0)
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -71,7 +71,7 @@ importers:
         version: 4.17.16
       '@types/node':
         specifier: ^22.0.0
-        version: 22.15.12
+        version: 22.15.13
       '@types/react':
         specifier: ^19.0.0
         version: 19.1.3
@@ -1542,8 +1542,8 @@ packages:
   '@types/lodash@4.17.16':
     resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
 
-  '@types/node@22.15.12':
-    resolution: {integrity: sha512-K0fpC/ZVeb8G9rm7bH7vI0KAec4XHEhBam616nVJCV51bKzJ6oA3luG4WdKoaztxe70QaNjS/xBmcDLmr4PiGw==}
+  '@types/node@22.15.13':
+    resolution: {integrity: sha512-mkmz+UBGCF/ssSObTp1McwQEvIjO2hUnVvZzck61l0su7btUill8OSvzA4N62+AtkJgMhiniyD+wEL5kocZaEA==}
 
   '@types/react-dom@19.1.3':
     resolution: {integrity: sha512-rJXC08OG0h3W6wDMFxQrZF00Kq6qQvw0djHRdzl3U5DnIERz0MRce3WVc7IS6JYBwtaP/DwYtRRjVlvivNveKg==}
@@ -2646,8 +2646,8 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
-  jotai@2.12.3:
-    resolution: {integrity: sha512-DpoddSkmPGXMFtdfnoIHfueFeGP643nqYUWC6REjUcME+PG2UkAtYnLbffRDw3OURI9ZUTcRWkRGLsOvxuWMCg==}
+  jotai@2.12.4:
+    resolution: {integrity: sha512-eFXLJol4oOLM8BS1+QV+XwaYQITG8n1tatBCFl4F5HE3zR5j2WIK8QpMt7VJIYmlogNUZfvB7wjwLoVk+umB9Q==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=17.0.0'
@@ -5784,7 +5784,7 @@ snapshots:
 
   '@types/lodash@4.17.16': {}
 
-  '@types/node@22.15.12':
+  '@types/node@22.15.13':
     dependencies:
       undici-types: 6.21.0
 
@@ -7175,7 +7175,7 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  jotai@2.12.3(@types/react@19.1.3)(react@19.1.0):
+  jotai@2.12.4(@types/react@19.1.3)(react@19.1.0):
     optionalDependencies:
       '@types/react': 19.1.3
       react: 19.1.0
