@@ -62,7 +62,7 @@ importers:
         version: 9.7.0
       '@opennextjs/cloudflare':
         specifier: ^0.3.0
-        version: 0.3.10(wrangler@4.14.3(@cloudflare/workers-types@4.20250508.0))
+        version: 0.3.10(wrangler@4.14.4(@cloudflare/workers-types@4.20250508.0))
       '@playwright/test':
         specifier: ^1.48.0
         version: 1.52.0
@@ -119,7 +119,7 @@ importers:
         version: 5.8.3
       wrangler:
         specifier: ^4.0.0
-        version: 4.14.3(@cloudflare/workers-types@4.20250508.0)
+        version: 4.14.4(@cloudflare/workers-types@4.20250508.0)
 
 packages:
 
@@ -3579,8 +3579,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  urlpattern-polyfill@10.0.0:
-    resolution: {integrity: sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==}
+  urlpattern-polyfill@10.1.0:
+    resolution: {integrity: sha512-IGjKp/o0NL3Bso1PymYURCJxMPNAf/ILOpendP9f5B6e1rTJgdgiOvgfoT8VxCAdY+Wisb9uhGaJJf3yZ2V9nw==}
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -3631,8 +3631,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.14.3:
-    resolution: {integrity: sha512-gY2n3cC8yb8VyaM0aY9fXX5AIah+VkGefmAHltUBgVpJaM4QXun6O85BydtTEljLL67JTyFyBDn/UPyg2WhESQ==}
+  wrangler@4.14.4:
+    resolution: {integrity: sha512-HIdOdiMIcJV5ymw80RKsr3Uzen/p1kRX4jnCEmR2XVeoEhV2Qw6GABxS5WMTlSES2/vEX0Y+ezUAdsprcUhJ5g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -5142,12 +5142,12 @@ snapshots:
       express: 5.0.1
       path-to-regexp: 6.3.0
       promise.series: 0.2.0
-      urlpattern-polyfill: 10.0.0
+      urlpattern-polyfill: 10.1.0
     transitivePeerDependencies:
       - aws-crt
       - supports-color
 
-  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.3(@cloudflare/workers-types@4.20250508.0))':
+  '@opennextjs/cloudflare@0.3.10(wrangler@4.14.4(@cloudflare/workers-types@4.20250508.0))':
     dependencies:
       '@ast-grep/napi': 0.33.1
       '@dotenvx/dotenvx': 1.31.0
@@ -5155,7 +5155,7 @@ snapshots:
       enquirer: 2.4.1
       glob: 11.0.1
       ts-morph: 23.0.0
-      wrangler: 4.14.3(@cloudflare/workers-types@4.20250508.0)
+      wrangler: 4.14.4(@cloudflare/workers-types@4.20250508.0)
       yaml: 2.7.0
     transitivePeerDependencies:
       - aws-crt
@@ -8104,7 +8104,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  urlpattern-polyfill@10.0.0: {}
+  urlpattern-polyfill@10.1.0: {}
 
   util-deprecate@1.0.2: {}
 
@@ -8170,7 +8170,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250507.0
       '@cloudflare/workerd-windows-64': 1.20250507.0
 
-  wrangler@4.14.3(@cloudflare/workers-types@4.20250508.0):
+  wrangler@4.14.4(@cloudflare/workers-types@4.20250508.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.3.1(unenv@2.0.0-rc.15)(workerd@1.20250507.0)
