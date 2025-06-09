@@ -1,3 +1,7 @@
+Supersed by https://github.com/poooi/r2-index-kai
+
+----------------------
+
 # R2 Index
 
 Index UI for Cloudflare R2 storage
